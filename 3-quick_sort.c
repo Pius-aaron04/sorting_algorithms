@@ -9,9 +9,9 @@
  * Return: part of array
  */
 
-size_t partition(int *array, size_t low, size_t high, size_t size)
+size_t partition(int *array, int low, int high, int size)
 {
-	size_t i = low, j;
+	int i = low, j;
 	int pivot, temp;
 
 	pivot = array[high];
@@ -48,15 +48,14 @@ size_t partition(int *array, size_t low, size_t high, size_t size)
  * @size: size of @array
  */
 
-void sort(int *array, size_t low, size_t high, size_t size)
+void sort(int *array, int low, int high, size_t size)
 {
 	size_t part;
 
 	if (low < high)
 	{
 		part = partition(array, low, high, size);
-		if (low)
-			sort(array, low, part - 1, size);
+		sort(array, low, part - 1, size);
 		sort(array, part + 1, high, size);
 	}
 }
