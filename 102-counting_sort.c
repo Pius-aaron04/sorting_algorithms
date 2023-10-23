@@ -11,10 +11,15 @@ void set_count_array(int *count_array, int max)
 	int i;
 
 	/* Updates and print count_array */
-	for (i = 1; (int)i <= max; i++)
+	for (i = 0; (int)i <= max; i++)
 	{
+        if (i == 0)
+        {
+            printf("%d, ", count_array[i]);
+            continue;
+        }
 		count_array[i] = count_array[i] + count_array[i - 1];
-		if ((int)i != max)
+		if (i != max)
 			printf("%d, ", count_array[i]);
 		else
 			printf("%d\n", count_array[i]);
@@ -52,13 +57,13 @@ void counting_sort(int *array, size_t size)
 	}
 	for (i = 0; i < size; i++)
 		count_array[array[i]]++;
-	printf("%d, ", count_array[0]);
 
 	set_count_array(count_array, max);
 
 	for (j = size - 1; (int)j >= 0; j--)
 	{
-		k = count_array[array[j]] - 1;
+        if (k >= 0)
+		    k = count_array[array[j]] - 1;
 		sorted_array[k] = array[j];
 	}
 	for (i = size - 1; (int)i >= 0; i--)
