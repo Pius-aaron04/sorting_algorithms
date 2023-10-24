@@ -80,7 +80,7 @@ void split(int *array, int lb, int ub)
 
 void merge_sort(int *array, size_t size)
 {
-	if (size < 2)
+	if (!array || size < 2)
 		return;
 	split(array, 0, (int)size - 1);
 }
