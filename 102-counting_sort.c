@@ -60,5 +60,6 @@ void counting_sort(int *array, size_t size)
 	}
 	for (i = size - 1; (int)i >= 0; i--)
 		array[i] = sorted_array[i];
+	free(count_array);
 	free(sorted_array);
 }
